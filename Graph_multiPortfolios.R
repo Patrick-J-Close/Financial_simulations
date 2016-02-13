@@ -2,7 +2,7 @@
 # Simulate a random portfolio performance and plot it as a density 
 # **************************************************
 
-# Create portfolios
+# Create portfolios: Time, Index, y1, y2, ..., yn
 n <- 100
 nsim <- 200
 set.seed(123)
@@ -14,7 +14,7 @@ colnames(ret_result) <- c("Time", "Index")
 for(i in 3:nsim){
      ret <- data.frame(rnorm(n, mean = 0.02, sd = 0.015))
      ret_result <- cbind(ret_result,index_val(ret))
-     colnames(ret_result)[i] <- paste("X", i, sep = "")
+     colnames(ret_result)[i] <- paste("y", i, sep = "")
 }
 # helper function to change return percentages to index vale
 index_val <- function(returns){
@@ -48,8 +48,3 @@ g <- g + geom_line(aes(y=ret_result$Index), colour = "red", alpha = 1, size = 1)
      ylab("Portfolio Value") +
      xlab("Time")
 print(g)
-
-
-
-
-
