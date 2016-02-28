@@ -42,7 +42,7 @@ print(g)
 g <- ggplot(ret_result, aes(x = ret_result$Time))
 vars <- names(ret_result)
 for(i in vars[-1]){
-     g <- g + geom_line(aes_string(y=toString(i)), alpha = 0.1)
+     g <- g + geom_line(aes_string(y=toString(i)), alpha = 0.05)
 }
 g <- g + geom_line(aes(y=ret_result$Index), colour = "red", alpha = 1, size = 1) +
      ylab("Portfolio Value") +
